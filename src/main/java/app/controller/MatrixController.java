@@ -58,12 +58,34 @@ public class MatrixController {
           // matrix.getData()[x][y] debe ser igual a 0
           float multiplicator = matrix.getData().clone()[x][y];
           for (int y2 = 0; y2 < matrix.getHeight(); y2++) {
-            matrix.getData()[x][y2] = ((-multiplicator) * matrix.getData()[y][y2]) + matrix.getData()[x][y2];
-            identity[x][y2] = ((-multiplicator) * identity[y][y2]) + identity[x][y2];
+            matrix.getData()[x][y2] += (-multiplicator) * matrix.getData()[y][y2];
+            identity[x][y2] += (-multiplicator) * identity[y][y2];
           }
         }
       }
     }
     return new Matrix(identity);
+  }
+
+  public float[] getSystemOfEquations(Matrix matrix, float[] independentValues) {
+    for (int y = 0; y < matrix.getHeight(); y++) {
+      // matrix.getData()[y][y2] debe ser igual a 1
+      float denominator = matrix.getData().clone()[y][y];
+      independentValues[y] /= denominator;
+      for (int y2 = 0; y2 < matrix.getHeight(); y2++) {
+        matrix.getData()[y][y2] /= denominator;
+      }
+      for (int x = 0; x < matrix.getWidth(); x++) {
+        if(x != y) {
+          // matrix.getData()[x][y] debe ser igual a 0
+          float multiplicator = matrix.getData().clone()[x][y];
+          independentValues[x] += (-multiplicator) * independentValues[y];
+          for (int y2 = 0; y2 < matrix.getHeight(); y2++) {
+            matrix.getData()[x][y2] += (-multiplicator) * matrix.getData()[y][y2];
+          }
+        }
+      }
+    }
+    return independentValues;
   }
 }

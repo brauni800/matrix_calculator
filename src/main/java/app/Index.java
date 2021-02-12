@@ -40,10 +40,24 @@ public class Index {
 
 
     try {
-      System.out.println("Gauss-Jordan");
+      System.out.println("Matriz inversa por Gauss-Jordan");
       float[][] gaussJordan = { { 1, -6, 2 },  { 2, -2, -1 }, { 1, -3, -5 } };
       Matrix matrix = new Matrix(gaussJordan);
       System.out.println(Arrays.deepToString(controller.getInverseByGaussJordan(matrix).getData())); 
+    } catch (Exception e) {
+      System.err.println(e);
+    }
+
+    try {
+      System.out.println("Sistema de ecuaciones por Gauss-Jordan");
+      float[][] gaussJordan = {
+        { 3, (float)-0.1, (float)-0.2 },
+        { (float)0.1, 7, (float)-0.3 },
+        { (float)0.3, (float)-0.2, 10 }
+      };
+      float[] independentValues = { (float)7.85, (float)-19.3, (float)71.4 };
+      Matrix matrix = new Matrix(gaussJordan);
+      System.out.println(Arrays.toString(controller.getSystemOfEquations(matrix, independentValues)));
     } catch (Exception e) {
       System.err.println(e);
     }
