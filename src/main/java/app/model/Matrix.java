@@ -1,21 +1,21 @@
 package app.model;
 
 public class Matrix {
-  private float[][] data;
+  private double[][] data;
 
-  public Matrix(float[][] data) {
+  public Matrix(double[][] data) {
     this.data = data;
   }
 
   public Matrix(int width, int height) {
-    this.data = new float[width][height];
+    this.data = new double[width][height];
   }
 
-  public float[][] getData() {
+  public double[][] getData() {
     return this.data;
   }
 
-  public void setData(float[][] newData) {
+  public void setData(double[][] newData) {
     this.data = newData;
   }
 
