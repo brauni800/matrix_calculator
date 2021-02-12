@@ -27,7 +27,7 @@
             <configuration>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>main.java.app.Index</mainClass>
+                  <mainClass>app.Index</mainClass>
                 </transformer>
               </transformers>
             </configuration>

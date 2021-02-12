@@ -1,6 +1,6 @@
-package main.java.app.controller;
+package app.controller;
 
-import main.java.app.model.Matrix;
+import app.model.Matrix;
 
 public class MatrixController {
   public Matrix sum(Matrix matrix1, Matrix matrix2) throws Error {

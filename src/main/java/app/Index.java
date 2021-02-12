@@ -1,9 +1,9 @@
-package main.java.app;
+package app;
 
 import java.util.Arrays;
 
-import main.java.app.controller.MatrixController;
-import main.java.app.model.Matrix;
+import app.controller.MatrixController;
+import app.model.Matrix;
 
 public class Index {
   public static void main(String[] args) {
